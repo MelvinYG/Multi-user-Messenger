@@ -1,0 +1,7 @@
+.img-container{
+    img{
+        height: 40px;
+        /* width: 25px; */
+        border-radius: 50%;
+    }
+}

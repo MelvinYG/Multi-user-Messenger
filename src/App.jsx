@@ -1,3 +1,4 @@
+import ChatPage from './routes/chat/chatPage'
 import Login from './routes/login/login'
 import SignUp from './routes/signup/signup'
 function App() {
@@ -6,7 +7,8 @@ function App() {
     <>
       <div>
         {/* <Login/> */}
-        <SignUp/>
+        {/* <SignUp/> */}
+        <ChatPage/>
       </div>
     </>
   )

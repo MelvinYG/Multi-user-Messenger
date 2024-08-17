@@ -1,8 +1,11 @@
+import AllChatList from "../../components/allChatList/allChatList";
+import ChatArea from "../../components/chatArea/chatArea";
+
 const ChatPage = () => {
   return (
-    <div className='login-container h-[100vh] flex flex-col justify-center items-center'>
-      {/* List */}
-      {/* chat Area jsx */}
+    <div className='flex mx-20'>
+      <AllChatList/>
+      <ChatArea/>
     </div>
   )
 };
