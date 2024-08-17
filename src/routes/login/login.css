@@ -1,0 +1,12 @@
+.login-container{
+    input{
+        width: 300px;
+        flex: 1;
+        outline: none;
+        padding: 10px 5px;
+        border: 1px solid #444 ;
+    }
+    button {
+        
+    }
+}
