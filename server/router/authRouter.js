@@ -48,7 +48,7 @@ router.post("/signup", async (req, res) => {
             
             console.log("trying2");
 
-            if (!existingUser) {
+            if (existingUser.length === 0) {
                 const hashedPassword = await bcrypt.hash(req.body.password, 10);
                 const newUserQuery = await db.insert(users).values({
                     username: req.body.username,

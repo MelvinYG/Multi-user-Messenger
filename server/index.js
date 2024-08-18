@@ -6,6 +6,7 @@ import authRouter from './router/authRouter.js';
 import session from 'express-session';
 import 'dotenv/config';
 import http from 'http';
+import { checkDbConnection } from './drizzle/db.js';
 
 const app = express();
 
@@ -16,6 +17,8 @@ const io = new Server(server,{
         credentials: true
     }
 });
+
+checkDbConnection();
 
 app.use(helmet());
 app.use(cors({

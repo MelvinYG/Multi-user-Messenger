@@ -4,3 +4,12 @@ import postgres from "postgres";
 
 const client = postgres(process.env.DATABASE_URL);
 export const db = drizzle(client, { schema, logger:true });
+
+export const checkDbConnection = async () => {
+    try {
+      await client`SELECT 1`; // Simple query to check connection
+      console.log("Database connected successfully");
+    } catch (err) {
+      console.error("Database connection error:", err);
+    }
+  };
