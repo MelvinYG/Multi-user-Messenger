@@ -12,7 +12,7 @@ const Login = () => {
             <button className='bg-orange-300 border border-orange-800 p-2 hover:bg-orange-700 transition-all ease-in-out'>
                 Login
             </button>
-            {/* <Link to={'/signup'}>Dont have an account ? Signup</Link> */}
+            <Link to={'/signup'}>Dont have an account ? Signup</Link>
         </form>
       </div>
     </div>
