@@ -1,11 +1,15 @@
-const express = require("express");
-const {Server} = require("socket.io");
-const helmet = require("helmet");
-const app = express();
-const cors = require("cors");
-const authRouter = require('./router/authRouter.js');
+import express from 'express';
+import { Server } from 'socket.io';
+import helmet from 'helmet';
+import cors from 'cors';
+import authRouter from './router/authRouter.js';
+import session from 'express-session';
+import 'dotenv/config';
+import http from 'http';
 
-const server = require("http").createServer(app);
+const app = express();
+
+const server = http.createServer(app);
 const io = new Server(server,{
     cors:{
         origin: "http://localhost:5173",
@@ -19,6 +23,18 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json());
+app.use(session({
+    secret: process.env.COOKIE_SECRET,
+    credentials: true,
+    name: "sid",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: process.env.ENVIRONMENT === "production",
+        httpOnly: true,
+        sameSite:  process.env.ENVIRONMENT === "production" ?  "none" : "lax",
+    }
+}))
 
 app.use("/auth", authRouter);
 

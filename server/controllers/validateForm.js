@@ -1,4 +1,4 @@
-const Yup = require("yup");
+import Yup from 'yup';
 
 const formSchemaLogin = Yup.object({
     email: Yup.string().required("Email required"),
@@ -11,35 +11,28 @@ const formSchemaSignup = Yup.object({
     password: Yup.string().required("Password required")
 });
 
-const validateFormLogin = (req, res) => {
+export const validateFormLogin = async (req, res) => {
     const formData = req.body;
-    formSchemaLogin.validate(formData)
-        .catch(err => {
-            res.status(422).send();
-            console.log(err.errors);
-        })
-        .then(valid => {
-            if(valid){
-                console.log("Form is good");
-            }
-        });
+    try {
+        await formSchemaLogin.validate(formData);
+        console.log("Form is good");
+        return true;
+    } catch (err) {
+        res.status(422).send({ errors: err.errors });
+        console.log(err.errors);
+        return false;
+    }
 }
 
-const validateFormSignup = (req, res) => {
+export const validateFormSignup = async (req, res) => {
     const formData = req.body;
-    formSchemaSignup.validate(formData)
-        .catch(err => {
-            res.status(422).send();
-            console.log(err.errors);
-        })
-        .then(valid => {
-            if(valid){
-                console.log("Form is good");
-            }
-        });
+    try {
+        await formSchemaSignup.validate(formData);
+        console.log("Form is good");
+        return true;
+    } catch (err) {
+        res.status(422).send({ errors: err.errors });
+        console.log(err.errors);
+        return false;
+    }
 }
-
-module.exports = {
-    validateFormLogin,
-    validateFormSignup
-};
