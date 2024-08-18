@@ -2,7 +2,7 @@ import './message.css';
 
 const Message = () => {
     return (
-        <div className='flex p-3 gap-3'>
+        <div className='flex p-2 gap-3 border-b border-grey hover:bg-[#f6f6f6]'>
             <div className="img-container flex justify-center items-center">
                 <img src="./avatar.jpg" alt="" />
             </div>

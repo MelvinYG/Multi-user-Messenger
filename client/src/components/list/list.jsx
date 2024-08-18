@@ -1,14 +1,15 @@
 import Message from "./message/message";
 
 const List = () => {
+  const numberOfMessages = 10;
+
   return (
-    <div>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
+    <div className="flex flex-col">
+      {Array.from({ length: numberOfMessages }).map((_, index) => (
+        <Message key={index} />
+      ))}
     </div>
-  )
+  );
 };
 
 export default List;

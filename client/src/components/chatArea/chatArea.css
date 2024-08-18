@@ -1,0 +1,27 @@
+.profile-img-container{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+
+    img{
+        height: 100%;
+        border-radius: 50%;
+    }
+}
+
+.chatBottom{
+    input{
+        background: transparent;
+    }
+    .util-container{
+        height: 30px;
+        width: 30px;
+        object-fit: cover;
+    }
+    .send{
+        background-color: #fee7e2;
+    }
+    img{
+        height: 100%;
+    }
+}

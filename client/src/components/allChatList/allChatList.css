@@ -12,6 +12,7 @@
         outline: none;
         padding: 10px 5px;
         border: none;
+        background: transparent;
     }
 }
 
@@ -20,4 +21,16 @@
     padding: 5px 10px;
     border-radius: 30px;
     border: 1px solid #eee;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #e3883e;
+        color: white;
+    }
+}
+
+.recent-chat-list{
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(54, 55, 57) rgba(68, 69, 72, 0.7);
 }

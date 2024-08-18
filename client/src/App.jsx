@@ -1,10 +1,10 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ChatPage from './routes/chat/chatPage'
 import Login from './routes/login/login'
 import SignUp from './routes/signup/signup'
 import { Layout, RequiredAuth } from "./routes/layout/layout";
 function App() {
-  
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -12,19 +12,23 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Login/>
+          element: <Login />
         },
         {
           path: "/login",
-          element: <Login/>
+          element: <Login />
         },
         {
           path: "/signup",
-          element: <SignUp/>
+          element: <SignUp />
+        },
+        {
+          path: "/chats",
+          element: <ChatPage />
         },
         {
           path: '*',
-          element: <Login/>
+          element: <Login />
         }
       ]
     },
@@ -34,7 +38,7 @@ function App() {
       children: [
         {
           path: "/chats",
-          element: <ChatPage/>
+          element: <ChatPage />
         }
       ]
     }
