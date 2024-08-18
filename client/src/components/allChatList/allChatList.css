@@ -29,8 +29,15 @@
     }
 }
 
-.recent-chat-list{
+.inner-list{
     overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(54, 55, 57) rgba(68, 69, 72, 0.7);
-}
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    height: calc(100vh - 100px);
+    padding-bottom: 50px;
+  }
+  
+  /* For Chrome, Safari, and other WebKit browsers */
+  .inner-list::-webkit-scrollbar {
+    display: none;
+  }

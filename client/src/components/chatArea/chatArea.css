@@ -11,6 +11,8 @@
 
 .chatBottom{
     input{
+        outline: none;
+        width: 100%;
         background: transparent;
     }
     .util-container{

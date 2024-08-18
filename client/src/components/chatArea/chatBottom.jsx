@@ -4,10 +4,10 @@ const ChatBottom = () => {
             <div className="flex justify-between bg-[whitesmoke] rounded-md py-2 px-5">
                 <input type="text" placeholder="Type your message here" />
                 <div className="flex gap-4">
-                    <div className="util-container">
+                    <div className="util-container cursor-pointer">
                         <img src="./attachment.png" alt="" />
                     </div>
-                    <div className="util-container send p-1">
+                    <div className="util-container send p-1 cursor-pointer">
                         <img src="./send.png" alt="" />
                     </div>
                 </div>
