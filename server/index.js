@@ -17,6 +17,7 @@ const io = new Server(server,{
         credentials: true
     }
 });
+console.log(process.env.DATABASE_URL);
 
 checkDbConnection();
 

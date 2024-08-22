@@ -43,23 +43,30 @@ router.post("/signup", async (req, res) => {
     if (await validateFormSignup(req, res)) {
         console.log("signup req");
         try {
-            console.log("trying1");
             const existingUser = await db.select().from(users).where(eq(users.username, req.body.username));
             
             console.log("trying2");
 
             if (existingUser.length === 0) {
                 const hashedPassword = await bcrypt.hash(req.body.password, 10);
-                const newUserQuery = await db.insert(users).values({
-                    username: req.body.username,
-                    email: req.body.email,
-                    password: hashedPassword,
-                });
+
+                const [newUser] = await db
+                    .insert(users)
+                    .values({
+                        username: req.body.username,
+                        email: req.body.email,
+                        password: hashedPassword,
+                    })
+                    .returning({ id: users.id }); 
+
                 console.log("new user here");
+                console.log(newUser);
+
                 req.session.user = {
                     username: req.body.username,
-                    id: newUserQuery[0].id,
-                }
+                    id: newUser.id, 
+                };
+
                 res.json({ loggedIn: true, username: req.body.username });
             } else {
                 console.log("old user again");
