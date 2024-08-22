@@ -23,10 +23,6 @@ function App() {
           element: <SignUp />
         },
         {
-          path: "/chats",
-          element: <ChatPage />
-        },
-        {
           path: '*',
           element: <Login />
         }

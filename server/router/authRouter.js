@@ -17,6 +17,7 @@ router.post("/login", async (req, res) => {
         console.log("login req");
         try {
             const user = await db.select().from(users).where(eq(users.email, req.body.email));
+            console.log(user);
             if(user.length > 0){
                 const orgUser = user[0];
                 const orgPass = orgUser.password;
@@ -26,11 +27,14 @@ router.post("/login", async (req, res) => {
                         username: req.body.username,
                         id: orgUser.id,
                     }
-                    res.json({ loggedIn: true, status: "Login successful" });
+                    console.log("logged in");
+                    res.json({ loggedIn: true, username: orgUser.username });
                 } else {
+                    console.log("not logged in");
                     res.json({ loggedIn: false, status: "Wrong username or password" });
                 }
             } else {
+                console.log("not logged in");
                 res.json({ loggedIn: false, status: "Wrong username or password" });
             }
         } catch (error) {
